@@ -1,0 +1,160 @@
+﻿<Window x:Class="Beat_Editor.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Beat_Editor" Style="{StaticResource Window}" Title="WarpPro Beat Editor" Height="600" Width="900" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown" Drop="Window_Drop" DragEnter="Window_DragEnter" MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseDoubleClick="Window_MouseDoubleClick">
+  <UIElement.CommandBindings>
+    <CommandBinding x:Name="openCmd" Command="Open" Executed="open_Executed" />
+    <CommandBinding x:Name="stopCmd" Command="Stop" Executed="stop_Executed" />
+    <CommandBinding x:Name="closeCmd" Command="Close" Executed="closeCmd_Executed" />
+    <CommandBinding x:Name="playCmd" Command="Play" Executed="play_Executed" />
+    <CommandBinding x:Name="saveCmd" Command="Save" Executed="saveCmd_Executed" />
+    <CommandBinding x:Name="undoCmd" Command="Undo" Executed="undoCmd_Executed" />
+    <CommandBinding x:Name="redoCmd" Command="Redo" Executed="redoCmd_Executed" />
+    <CommandBinding x:Name="helpCmd" Command="Help" Executed="helpCmd_Executed" />
+  </UIElement.CommandBindings>
+  <Grid>
+    <DockPanel VerticalAlignment="Top">
+      <Image Source="/WarpPro;component/images/warppro25.png" Width="25" Height="25" Margin="3,3,3,3" HorizontalAlignment="Left" />
+      <TextBlock Name="TitleBar" FontSize="13" FontStyle="Italic" Margin="8,0,0,0" FontWeight="Bold" VerticalAlignment="Center">WarpPro</TextBlock>
+      <TextBlock FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" Width="25" Height="25" DockPanel.Dock="Right" TextAlignment="Center" MouseLeftButtonDown="Close_MouseLeftButtonDown" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave">x</TextBlock>
+      <TextBlock FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" Width="25" Height="25" DockPanel.Dock="Right" TextAlignment="Center" MouseLeftButtonDown="Maximize_MouseLeftButtonDown" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave">□</TextBlock>
+      <TextBlock Name="minimize" FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" Width="25" Height="25" DockPanel.Dock="Right" TextAlignment="Center" MouseLeftButtonDown="Minimize_MouseLeftButtonDown" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave">_</TextBlock>
+    </DockPanel>
+    <StackPanel Margin="0,30">
+      <Menu Name="menu" Height="18" VerticalAlignment="Top">
+        <MenuItem Name="menu_file" Header="_File">
+          <MenuItem Name="menu_file_open" Header="_Open" Command="Open">
+            <MenuItem.Icon>
+              <Image Source="/images/open-20px.png" />
+            </MenuItem.Icon>
+          </MenuItem>
+          <MenuItem Header="S_ave as" Command="Save">
+            <MenuItem.Icon>
+              <Image Source="/images/save-20px.png" />
+            </MenuItem.Icon>
+          </MenuItem>
+          <MenuItem Header="_Close File" Click="MenuItem_CloseFile_Click" />
+          <MenuItem Header="_Settings" Click="MenuSettings_Click">
+            <MenuItem.Icon>
+              <Image Source="/WarpPro;component/images/settings-20px.png" />
+            </MenuItem.Icon>
+          </MenuItem>
+          <MenuItem Header="_Exit" Command="Close" />
+        </MenuItem>
+        <MenuItem Name="menu_edit" Header="_Edit">
+          <MenuItem Header="_Undo" Command="Undo">
+            <MenuItem.Icon>
+              <Image Source="/images/undo-20px.png" />
+            </MenuItem.Icon>
+          </MenuItem>
+          <MenuItem Header="_Redo" Command="Redo">
+            <MenuItem.Icon>
+              <Image Source="/images/redo-20px.png" />
+            </MenuItem.Icon>
+          </MenuItem>
+        </MenuItem>
+        <MenuItem Name="menuItem_Info" Header="Info">
+          <MenuItem Header="_Online help" Command="Help">
+            <MenuItem.Icon>
+              <Image Source="/WarpPro;component/images/help-20px.png" />
+            </MenuItem.Icon>
+          </MenuItem>
+          <MenuItem Name="menuItem_Purchase" Header="_Purchase" Click="MenuItem_ClickPurchase">
+            <MenuItem.Icon>
+              <Image Source="/WarpPro;component/images/purchase-20px.png" />
+            </MenuItem.Icon>
+          </MenuItem>
+          <MenuItem Name="menuItem_Feedback" Header="Send _Feedback" Click="menuItem_Feedback_Click">
+            <MenuItem.Icon>
+              <Image Source="/WarpPro;component/images/feedback-20px.png" />
+            </MenuItem.Icon>
+          </MenuItem>
+          <MenuItem Header="_About" Click="MenuItem_ClickAbout" />
+        </MenuItem>
+      </Menu>
+      <ToolBar Name="toolBar" Height="57" VerticalAlignment="Top" ToolBarTray.IsLocked="True" Margin="-4,0,-14,0" BorderThickness="1">
+        <Button Name="openButton" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Command="ApplicationCommands.Open" ToolTip="Open audio file">
+          <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Image HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="30" Source="/images/open.png" />
+            <TextBlock HorizontalAlignment="Center" Text="open" FontSize="11" />
+          </StackPanel>
+        </Button>
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Command="ApplicationCommands.Save" ToolTip="Save processed audio to file">
+          <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Image HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="30" Source="/images/save.png" />
+            <TextBlock HorizontalAlignment="Center" Text="save as" FontSize="11" />
+          </StackPanel>
+        </Button>
+        <Separator Style="{StaticResource ToolBar.SeparatorStyleKey}" />
+        <Button Name="undoButton" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40" ToolTip="Undo last change" Command="ApplicationCommands.Undo">
+          <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Image HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="30" Source="/images/undo.png" />
+            <TextBlock HorizontalAlignment="Center" Text="undo" FontSize="11" />
+          </StackPanel>
+        </Button>
+        <Button Name="redoButton" VerticalAlignment="Top" HorizontalAlignment="Left" Width="40" ToolTip="Redo last undo" Command="ApplicationCommands.Redo">
+          <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Image HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="30" Source="/images/redo.png" />
+            <TextBlock HorizontalAlignment="Center" Text="redo" FontSize="11" />
+          </StackPanel>
+        </Button>
+        <Separator Style="{StaticResource ToolBar.SeparatorStyleKey}" />
+        <Button Name="resetButton" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" ToolTip="Reset beat edits" Click="resetButton_Click">
+          <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Image HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="30" Source="/images/reset.png" />
+            <TextBlock HorizontalAlignment="Center" Text="reset" FontSize="11" />
+          </StackPanel>
+        </Button>
+        <Button Name="multiButton" VerticalAlignment="Top" HorizontalAlignment="Left" Width="65" ToolTip="Toggle editor mode that moves the following beats along with the edited beat" Click="multiButton_Click">
+          <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Image HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="30" Source="/images/multimove.png" />
+            <TextBlock HorizontalAlignment="Center" Text="move many" FontSize="11" />
+          </StackPanel>
+        </Button>
+        <Separator Style="{StaticResource ToolBar.SeparatorStyleKey}" />
+        <Button Name="playButton" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Command="Play" ToolTip="Play/Pause audio">
+          <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Image Name="playIcon" HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="30" Source="/images/play.png" />
+            <TextBlock Name="playText" HorizontalAlignment="Center" Text="play" FontSize="11" />
+          </StackPanel>
+        </Button>
+        <Button Name="stopButton" VerticalAlignment="Top" HorizontalAlignment="Left" Width="50" Command="Stop" ToolTip="Stop playback">
+          <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Image HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="30" Source="/images/stop.png" />
+            <TextBlock HorizontalAlignment="Center" Text="stop" FontSize="11" />
+          </StackPanel>
+        </Button>
+        <Separator Style="{StaticResource ToolBar.SeparatorStyleKey}" />
+        <Button Name="metronomeButton" VerticalAlignment="Top" HorizontalAlignment="Left" Width="65" ToolTip="Toggle metronome over audio on/off" Click="metronomeButton_Click">
+          <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Image HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="30" Source="/images/metronome.png" />
+            <TextBlock HorizontalAlignment="Center" Text="metronome" FontSize="11" />
+          </StackPanel>
+        </Button>
+        <Separator Name="purchaseSeparator" Style="{StaticResource ToolBar.SeparatorStyleKey}" Margin="10,0,0,0" />
+        <Button Name="purchaseButton" VerticalAlignment="Top" HorizontalAlignment="left" Width="65" ToolTip="Toggle metronome over audio on/off" Click="purchaseButton_Click">
+          <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Image HorizontalAlignment="Center" Height="30" VerticalAlignment="Top" Width="30" Source="/images/purchase.png" />
+            <TextBlock HorizontalAlignment="Center" Text="purchase" FontSize="11" />
+          </StackPanel>
+        </Button>
+      </ToolBar>
+      <DockPanel>
+        <TextBlock Text="Original beat rate:" Margin="5,2" VerticalAlignment="Center" />
+        <TextBox Name="editBPM" Text="100.000" Width="50" TextAlignment="Left" VerticalAlignment="Center" ToolTip="Define initial BPM rate here" LostFocus="editBPM_LostFocus" KeyDown="editBPM_KeyDown" />
+        <TextBlock Text="BPM" VerticalAlignment="Center" Margin="5,0,0,0" />
+        <Button Name="buttonX2" Content="_x2" Width="20" Margin="5,0,0,0" ToolTip="Double the BPM value (right-click to halve the BPM)" Click="buttonX2_Click" MouseRightButtonDown="buttonX2_MouseRightButtonDown" />
+        <Button Name="buttonTap" Content="_Tap" Width="60" Margin="5,0,0,0" ToolTip="Tap beat (shortcut key T)" Click="buttonTap_Click" />
+        <TextBlock Text="Target beat rate:" Margin="40,0,2,0" VerticalAlignment="Center" />
+        <TextBox Name="editTargetBPM" Text="100.0" Width="50" TextAlignment="Left" VerticalAlignment="Center" ToolTip="Set desired target BPM rate here. Set to different from the initial BPM for faster/slower tempo" AllowDrop="False" LostFocus="editTargetBPM_LostFocus" KeyDown="editTargetBPM_KeyDown" />
+        <TextBlock Text="BPM" VerticalAlignment="Center" Margin="5,0,0,0" />
+      </DockPanel>
+    </StackPanel>
+    <local:WaveFormBeatEditor x:Name="waveform" Margin="10,130,10,68" SnapsToDevicePixels="True" ToolTip="Beat editor. Drag beats to match with desired position in waveform. Zoom with mousewheel or +/- keys. Pan with right mouse button" />
+    <local:WaveFormOverview x:Name="waveformOV" Margin="10,0,10,25" Height="40" SnapsToDevicePixels="True" VerticalAlignment="Bottom" ToolTip="Waveform overview. Define zoom range with left mouse button and pan with right mouse button." />
+    <StatusBar Height="22" VerticalAlignment="Bottom">
+      <TextBlock Name="fileText" Text="FileName" HorizontalAlignment="Left" Width="400" />
+      <TextBlock Name="viewText" Text="view:00:00.00 - 00:00.00s" Width="140" />
+      <TextBlock Name="posText" Text="pos:00:00.000s" Width="80" />
+      <TextBlock Name="warpText" Text="warp:0.000s" Width="80" />
+      <TextBlock Name="playPosText" Text="play:00:00.000s" Width="80" />
+    </StatusBar>
+  </Grid>
+</Window>

@@ -1,0 +1,12 @@
+<Weavers>
+  <Costura>
+    <Unmanaged32Assemblies>
+      libmp3lame.32
+      SoundTouch
+    </Unmanaged32Assemblies>
+    <Unmanaged64Assemblies>
+      libmp3lame.64
+      SoundTouch
+    </Unmanaged64Assemblies>
+  </Costura>
+</Weavers>

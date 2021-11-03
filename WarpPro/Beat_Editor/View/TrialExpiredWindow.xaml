@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="Beat_Editor.View.TrialExpiredWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Beat_Editor.View" Style="{StaticResource Window}" Title="Trial period expired" Height="200" Width="450" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" AllowsTransparency="True" WindowStyle="None">
+  <Grid>
+    <TextBlock Margin="5" FontSize="14.667">Trial period expired</TextBlock>
+    <TextBox Name="textBox_note" Margin="125,35,10,46" TextWrapping="Wrap" Text="The free Trial period has expired" BorderThickness="0" />
+    <Button Content="_Purchase" HorizontalAlignment="Center" Margin="112,0,212,9" Width="76" IsDefault="True" Height="25" VerticalAlignment="Bottom" Click="Button_Click" />
+    <Button Content="_Close" HorizontalAlignment="Center" Margin="212,0,112,9" VerticalAlignment="Bottom" Width="76" Height="25" IsCancel="True" Click="Button_Click_1" />
+    <Image Name="image" HorizontalAlignment="Left" Height="103" Margin="10,35,0,0" VerticalAlignment="Top" Width="102" Source="/WarpPro;component/images/sad.png" />
+  </Grid>
+</Window>

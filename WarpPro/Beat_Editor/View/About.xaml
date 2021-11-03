@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="Beat_Editor.View.About" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Beat_Editor.View" Style="{StaticResource Window}" Title="About WarpPro" Height="500" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" WindowStyle="None" AllowsTransparency="True">
+  <DockPanel>
+    <Image Name="image" HorizontalAlignment="Center" Margin="10,10,0,0" VerticalAlignment="Top" Source="/images/warppro-logo.png" Width="400" Height="129" DockPanel.Dock="Top" />
+    <TextBlock Name="textVersion" Text="WarpPro beat editor v1.1.12345 (11-11-1111) - Copyright © Warppro.com 2018" Margin="10,10,10,0" HorizontalAlignment="Center" DockPanel.Dock="Top" />
+    <TextBlock Name="textLicenseId" Text="License ID: XXXX-XXXX-XXXX" Margin="10,5,10,0" HorizontalAlignment="Center" DockPanel.Dock="Top" />
+    <TextBlock Name="textLicenseMode" Text="License: TRIAL version" Margin="10,5,0,0" HorizontalAlignment="Center" DockPanel.Dock="Top" />
+    <TextBox Name="textLicenseText" Margin="10,10,10,0" TextWrapping="Wrap" Text="This is application license text." IsReadOnly="True" IsUndoEnabled="False" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" DockPanel.Dock="Top" Height="230" />
+    <Button Name="buttonClose" Content="_Close" HorizontalAlignment="Center" Margin="0,0,0,10" Width="100" Height="25" VerticalAlignment="Bottom" IsDefault="True" IsCancel="True" DockPanel.Dock="Bottom" Click="buttonClose_Click" />
+  </DockPanel>
+</Window>

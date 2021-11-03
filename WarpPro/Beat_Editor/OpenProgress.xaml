@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="Beat_Editor.OpenProgress" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Beat_Editor" Style="{StaticResource Window}" Title="Open" Height="80" Width="400" ResizeMode="NoResize" SizeToContent="WidthAndHeight" WindowStyle="None" AllowsTransparency="True">
+  <StackPanel>
+    <TextBlock Name="textOpen" Margin="10,10">Opening</TextBlock>
+    <ProgressBar Name="progressOpen" Minimum="0" Maximum="100" Value="50" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="370" Margin="10,0,10,10" />
+  </StackPanel>
+</Window>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="pause" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAABAIAAAKJUE5HDQoaCgAAAA1JSERSAAAAQAAAAEAIBgAAAKppcd4AAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAK6wAACusBgosNWgAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAFxSURBVHhe7duxTYNRFEPhjMZojMYIbBSc4jS8Y4mIPw3Y0tdcJy+S+9zu9/tPvV/A3jX23WfZuwc9FlfE3jVXxN496LEgn/HxhMfnib1ryMt/S48FeQvrm8fnifWGvPy39FiQDRDWNxsgiPWGbICwvtkAQaw/6LEgGyCsbzZAEOsN2QBhfbMBglh/0GNBNkBY32yAINYbsgHC+mYDBLH+oMeCbICwvtkAQaw3ZAOE9c0GCGL9QY8F2QBhfbMBglhvyAYI65sNEMT6gx4LsgHC+mYDBLHekA0Q1jcbIIj1Bz0WZAOE9c0GCGK9IRsgrG82QBDrD3osyAYI65sNEMR6QzZAWN9sgCDWH/RYkA0Q1jcbIIj1hmyAsL7ZAEGsP+ixIBsgrG82QBDrDdkAYX2zAYJYf9BjQTZAWN9sgCDWG7IBwvpmAwSx/qDHgmyAsL75cwP8+7/O/ib2rrki9u5Bj4X9Rf1Z9q6x7z7L3v3mfvsCXRl4SzpJ4kUAAAAASUVORK5CYIIL</value></data><data name="play" mimetype="application/x-microsoft.net.object.binary.base64"><value>AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJhd2luZy5CaXRtYXABAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAAQMAAAKJUE5HDQoaCgAAAA1JSERSAAAAQAAAAEAIBgAAAKppcd4AAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAJuSURBVHhe5ZqBTcMwEEU7AiMwAiMwAiMwAiMwAiMwAiMwAiMwAhsEf8STXNdpL42dnK+WnvRTmar3aH5dxGGaJvGa+Ew8/l/fDAQJYN2UCEIugHUTIggI+E5o8HyFFkFAgIbVtQa+CRGEUgBo4PdEvkKJIMwJgPtESBGESwIgnAiCVQCEEUFYKgCGF0G4VgAMK4KwVgAg4ifBci2C0EoA3CX0nKWIp0Rt/24QWguAmgidNp8Ttf2bQ+glANyKIPQWAO5EELYSAG5EELYWALuLIOwlIEdDa3jWJiIIHgTApiIIngTAJiIIHgVAVxEEzwKgiwjCCAKgqQjCSAJA3yv0ellXiSCMKAD0TbMmQmeM2v4jCCMLgFKEDlea66wIQgQBsEgEIZIAMIkgRBQAZ0WwKbIAIQn5R6ck6LHwAso/1p7cBmyMJkADMhNLIiTkaC8hkoCXhH7TLM30kKjtDSVAJ8PyiPx3n5+DMLKAsuUXHYkJIwq4WHAWCCMJmCu4RYMDYRQBtYI7afYlELwLKAvuK3Gx4CwQvApYVXAWCN4ENCk4CwQvApoWnAWCBwHNC84CYU8BZcHpNTQpOAuEPQR0LzgLhC0FzBVcbW93CFsIUJG9JfKl624FZ4HQW4CePy+4j0T3grNA6CVA9/RuBWeB0FqAi4KzQGglQG9rvb1ZuxacBcJaAS4LzgJhjQD9rMuCs0C4RoD7grNAWCKgVnDu/gXWCsEioFZw+gJT2zsMhHMCagWn/e4LzgJhToAezwtOZ/hhCs4CoRQQouAsEBCgoTUsa+iCs0BAACtEwVkg5AKUQxScBYKGDldwl5kOv4X1aNmfmFRCAAAAAElFTkSuQmCCCw==</value></data><data name="BuildDate"><value>5-11-2018
+</value></data>
+  </root>
